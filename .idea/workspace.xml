@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="099c4902-8bee-4cf4-bb70-79f26568f9ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/RoomMaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Save.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/SaveList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Variable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/AbstractEnemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Boss.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Wizard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/Door.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/Merchant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Enum/Core.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Enum/House.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Enum/Pet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Item/Potion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Item/Wand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Room/GameObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Room/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Spell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Story.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NySgc4MCoQCvsbhkEvuEu5yyDI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="HarryPotterAtHome" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="099c4902-8bee-4cf4-bb70-79f26568f9ac" name="Changes" comment="" />
+      <created>1680634944260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680634944260</updated>
+    </task>
+    <servers />
+  </component>
+</project>
