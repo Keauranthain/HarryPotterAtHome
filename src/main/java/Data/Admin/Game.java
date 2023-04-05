@@ -16,6 +16,7 @@ public class Game implements Serializable{
     public Random random;
     public Scanner scanner;
     public Door door;
+    public InitialConfig creation;
     //List of element
     public List<GameObject> objetList = new ArrayList<>();
     public List<Enemy> enemyList = new ArrayList<>();
@@ -32,6 +33,7 @@ public class Game implements Serializable{
         this.random = new Random();
         this.door = new Door(0,0,0);
         this.count = 0;
+        this.creation= new InitialConfig();
     }
     //id ################################################################################################################
     public Room findRoomById(int roomId) {
@@ -276,7 +278,6 @@ public class Game implements Serializable{
         System.out.println("############################################################");
     }
     public void potionGift(int number){
-        Random random = new Random();
         int k;
         for (int i = 0 ; i < number ; i++){
             potionSort();
@@ -310,7 +311,8 @@ public class Game implements Serializable{
     public void action() throws IOException {
         char character='n';
         ScreenMap();
-        System.out.print("Que dois je faire ? : ");
+        see();
+        System.out.print("Que dois je faire ? (z:↑, q:←, d:→, s:↓, a:interagir, e:menu) : ");
         String input = scanner.nextLine();
         try {
             character = input.charAt(0);
@@ -426,6 +428,24 @@ public class Game implements Serializable{
             findGameObjectById(1).setDirection('u');
         }
     }
+    private void see(){
+        char direction = findGameObjectById(1).getDirection();
+        switch (direction){
+            case 'u':
+                System.out.println("Regard : ↑");
+                break;
+            case 'l':
+                System.out.println("Regard : ←");
+                break;
+            case 'r':
+                System.out.println("Regard : →");
+                break;
+            case 'd':
+                System.out.println("Regard : ↓");
+                break;
+        }
+
+    }
     public int[] heroXY(){
         List<int[]> objects = findRoomById(var.idRoom).getObjects();
         int[] XY = new int[2];
@@ -501,6 +521,7 @@ public class Game implements Serializable{
         System.out.println("1 : Caracteristique");
         System.out.println("2 : Sort");
         System.out.println("3 : Inventaire");
+        System.out.println("4 : Agenda");
         System.out.print("Action à faire : ");
         String inputString;
         inputString = new String(scanner.nextLine());
@@ -512,79 +533,91 @@ public class Game implements Serializable{
         }
         switch (character) {
             case '1':
-                System.out.println("");
-                System.out.println("Prénom : " + var.wizard.getFirstname());
-                System.out.println("Nom : " + var.wizard.getName());
-                if (var.wizard.getLevel() != 0) {
-                    System.out.println("Niveau : " + var.wizard.getLevel());
-                }
-                if (var.wizard.getMagic() != 0) {
-                    System.out.println("Vie : " + var.wizard.getFullLife() + "/" + var.wizard.getFullLife());
-                }
-                if (var.wizard.getMagic() != 0) {
-                    System.out.println("Magie : " + var.wizard.getMagic());
-                }
-                if (var.wizard.getResist() != 0) {
-                    System.out.println("Résistance : " + var.wizard.getResist());
-                }
-                if (var.wizard.getYears() != 0) {
-                    System.out.println("Maison : " + var.wizard.getHouse());
-                }
-                if (var.wizard.getYears() != 0) {
-                    System.out.println("Année : " + var.wizard.getYears());
-                }
-                if (var.wizard.getPet() != null) {
-                    System.out.println("Animal : " + var.wizard.getPet());
-                }
-                if (var.wizard.getWand() != null) {
-                    System.out.println("Baguette : " + var.wizard.getWand().getName());
-                }
+                stat();
                 break;
             case '2':
-                if (var.wizard.getKnowspell().size()>0) {
-                    for (int i = 0; i < var.wizard.getKnowspell().size(); i++) {
-                        System.out.println(i + ": " + var.wizard.getKnowspell().get(i).getName());
-                    }
-                }
-                else {System.out.println("Je ne connais point de sort");}
+                spellmenu();
                 break;
             case '3':
-                if (var.wizard.getPotionList().size()==0){
-                    System.out.println("Je n'ai point de potion");
-                }
-                else {
-                    potionSort();
-                    for (int i = 0; i < var.wizard.getPotionList().size(); i++) {
-                        List<Integer> potion = var.wizard.getPotionList().get(i);
-                        System.out.println(i + ": " + findPotionById(potion.get(0)).getName() + " (" + potion.get(1) + ")");
-                    }
-                }
+                potionmenu();
                 break;
             case '4':
-                switch (var.action){
-                    case 1:
-                        System.out.println("cour de sortilège dans la tour Ouest...");
-                        break;
-                    case 2:
-                        System.out.println("Regardons mon emplois du tu temps, j'ai...cour de potion au cachot...");
-                        break;
-                    case 3:
-                        System.out.println("Regardons mon emplois du tu temps, j'ai...cour de DFM dans la tour Est...");
-                        break;
-                    case 4:
-                        System.out.println("Regardons mon emplois du tu temps, j'ai...cour d'astronomie au sommet de la tour Ouest...");
-                        break;
-                    case 5:
-                        System.out.println("Regardons mon emplois du tu temps, j'ai...fini ma journée !");
-                        break;
-                    case 6:
-                        System.out.println("Quelque chose se passe dans l'école, je devrais aller voir...");
-                        break;
-                }
+                planning();
                 break;
         }
         enter();
 
+    }
+    private void stat() {
+        System.out.println("");
+        System.out.println("Prénom : " + var.wizard.getFirstname());
+        System.out.println("Nom : " + var.wizard.getName());
+        if (var.wizard.getLevel() != 0) {
+            System.out.println("Niveau : " + var.wizard.getLevel());
+        }
+        if (var.wizard.getMagic() != 0) {
+            System.out.println("Vie : " + var.wizard.getFullLife() + "/" + var.wizard.getFullLife());
+        }
+        if (var.wizard.getMagic() != 0) {
+            System.out.println("Magie : " + var.wizard.getMagic());
+        }
+        if (var.wizard.getResist() != 0) {
+            System.out.println("Résistance : " + var.wizard.getResist());
+        }
+        if (var.wizard.getYears() != 0) {
+            System.out.println("Maison : " + var.wizard.getHouse());
+        }
+        if (var.wizard.getYears() != 0) {
+            System.out.println("Année : " + var.wizard.getYears());
+        }
+        if (var.wizard.getPet() != null) {
+            System.out.println("Animal : " + var.wizard.getPet());
+        }
+        if (var.wizard.getWand() != null) {
+            System.out.println("Baguette : " + var.wizard.getWand().getName());
+        }
+    }
+    private void spellmenu(){
+        if (var.wizard.getKnowspell().size()>0) {
+            for (int i = 0; i < var.wizard.getKnowspell().size(); i++) {
+                System.out.println(i + ": " + var.wizard.getKnowspell().get(i).getName());
+            }
+        }
+        else {System.out.println("Je ne connais point de sort");}
+    }
+    private void potionmenu(){
+        if (var.wizard.getPotionList().size()==0){
+            System.out.println("Je n'ai point de potion");
+        }
+        else {
+            potionSort();
+            for (int i = 0; i < var.wizard.getPotionList().size(); i++) {
+                List<Integer> potion = var.wizard.getPotionList().get(i);
+                System.out.println(i + ": " + findPotionById(potion.get(0)).getName() + " (" + potion.get(1) + ")");
+            }
+        }
+    }
+    private void planning(){
+        switch (var.action){
+            case 1:
+                System.out.println("cour de sortilège dans la tour Ouest...");
+                break;
+            case 2:
+                System.out.println("Regardons mon emplois du tu temps, j'ai...cour de potion au cachot...");
+                break;
+            case 3:
+                System.out.println("Regardons mon emplois du tu temps, j'ai...cour de DFM dans la tour Est...");
+                break;
+            case 4:
+                System.out.println("Regardons mon emplois du tu temps, j'ai...cour d'astronomie au sommet de la tour Ouest...");
+                break;
+            case 5:
+                System.out.println("Regardons mon emplois du tu temps, j'ai...fini ma journée !");
+                break;
+            case 6:
+                System.out.println("Quelque chose se passe dans l'école, je devrais aller voir...");
+                break;
+        }
     }
     public int objEffect(int id) {
         GameObject obj = findGameObjectById(id);

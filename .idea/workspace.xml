@@ -4,37 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="099c4902-8bee-4cf4-bb70-79f26568f9ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/RoomMaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Save.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/SaveList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Variable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/AbstractEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Boss.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Wizard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/Door.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/Merchant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Enum/Core.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Enum/House.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Enum/Pet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Item/Potion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Item/Wand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Room/GameObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Room/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Spell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Story.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="099c4902-8bee-4cf4-bb70-79f26568f9ac" name="Changes" comment="HPHv2 with maven build">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Item/Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Item/Wand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +21,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -57,21 +38,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Corentin\IdeaProjects\HarryPotterAtHome\save" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -95,6 +81,18 @@
       <option name="presentableId" value="Default" />
       <updated>1680634944260</updated>
     </task>
+    <task id="LOCAL-00001" summary="HPHv2 with maven build">
+      <created>1680635782738</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680635782738</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="HPHv2 with maven build" />
+    <option name="LAST_COMMIT_MESSAGE" value="HPHv2 with maven build" />
   </component>
 </project>

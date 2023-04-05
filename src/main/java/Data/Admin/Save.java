@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Save {
-    List<String> Savegame;
 
     public void saveGame(Variable var) throws IOException {
         var.stage++;
-        FileOutputStream fos = new FileOutputStream(var.gamename);
+        FileOutputStream fos = new FileOutputStream("save/" +var.gamename+".gamesave");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(var);
         oos.close();
@@ -20,13 +19,13 @@ public class Save {
         //System.out.println("Nom de la sauvegarde :"+filename);
         Variable var = null;
         try {
-            FileInputStream fis = new FileInputStream(filename);
+            FileInputStream fis = new FileInputStream("save/" +filename+".gamesave");
             ObjectInputStream ois = new ObjectInputStream(fis);
             var = (Variable) ois.readObject();
             ois.close();
             fis.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Pas trouvé");
+            //System.out.println("Pas trouvé");
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -37,7 +36,7 @@ public class Save {
         SaveList save = new SaveList();
         save.Savegame.addAll(savename);
         String savelist = "saveliste";
-        FileOutputStream fos = new FileOutputStream(savelist);
+        FileOutputStream fos = new FileOutputStream("save/" +savelist);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(save);
         oos.close();
@@ -49,7 +48,7 @@ public class Save {
         SaveList loadList;
         String savelist = "saveliste";
         try {
-            FileInputStream fis = new FileInputStream(savelist);
+            FileInputStream fis = new FileInputStream("save/" +savelist);
             ObjectInputStream ois = new ObjectInputStream(fis);
             loadList = (SaveList) ois.readObject();
             ois.close();
@@ -69,7 +68,7 @@ public class Save {
             if (oldsave.size() > 0) {
                 new_old(admin, oldsave);
             } else {
-                System.out.println("Entrez le nom de la nouvelle partie : ");
+                System.out.print("Entrez le nom de la nouvelle partie : ");
                 admin.var.gamename = admin.scanner.nextLine();
             }
         }
@@ -82,11 +81,18 @@ public class Save {
     }
     public void new_old(Game admin,List<String> oldsave) throws IOException {
         if(admin.playerchoiceboolean("Nouvelle partie/Continuer (0:Continuer, 1:Nouvelle partie) : ")) {
-            String name = admin.scanner.nextLine();
             for (int i = 0; i < oldsave.size(); i++) {
                 System.out.println(i + ": '" + oldsave.get(i)+"'");
             }
-            admin.var = loadGame(oldsave.get(admin.playerchoice("Quelle partie charger :",oldsave.size())));
+            int n_save =admin.playerchoice("Quelle partie charger :", oldsave.size());
+            admin.var = loadGame(oldsave.get(n_save));
+            if (admin.var == null){
+                System.out.println("Fichier sauvegarde inexistant");
+                oldsave.remove(n_save);
+                saveList(oldsave);
+                admin.var = new Variable();
+                start(admin);
+            }
         }else{
             String name = "";
             boolean ok = true;

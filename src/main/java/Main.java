@@ -10,8 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Game admin = new Game();
         admin.save.start(admin);
-        InitialConfig creation = new InitialConfig();
-        creation.Creator(admin);
+        admin.creation.Creator(admin);
         Story story = new Story();
         //fight.fight();
         story.allstory(admin);

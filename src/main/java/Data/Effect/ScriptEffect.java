@@ -649,7 +649,7 @@ public class ScriptEffect {
             admin.enter();
             System.out.println("Olivender : Alors on va vous trouvez ça...");
             admin.blackscreen(2000);
-            admin.var.wizard.wand=new Wand();
+            admin.var.wizard.wand=new Wand(admin);
             System.out.println("Olivender : Voilà une baguette en "+admin.var.wizard.wand.getName());
         } else if (admin.var.wizard.wand != null) {
             System.out.println("Olivender : Attendez, vous êtes déjà venu !");

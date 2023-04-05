@@ -52,20 +52,11 @@ public class Story {
         admin.var.wizard.Knowspell.add(admin.findSpellById(sort));
         System.out.println("Je sais maintenant utilisé le sort "+admin.findSpellById(sort).name+" !");
     }
-    private void firstnight(Game admin) throws IOException {
-        if (admin.var.stage == admin.count){
-            while (admin.var.sleapstart) {
-                admin.action();
-            }
-            admin.count++;
-        }
-    }
     //A0 #################################################################################################################
     private void A0(Game admin) throws IOException {
         Wizard wizard = admin.var.wizard;
         if (wizard.years==0) {
             A0dream(admin);
-            admin.save.firstsave(admin);
             while(wizard.years==0){
                 admin.action();
             }
@@ -75,11 +66,13 @@ public class Story {
     }//1,2
     private void A0dream(Game admin) throws IOException {
         if (!admin.var.enddream) {
+            admin.creation.RoomCreator(admin);
             A0namefirstname(admin);
             A0patronum(admin);
             A0House(admin);
             System.out.println("Ce n'était qu'un reve...");
             admin.var.enddream = true;
+            admin.save.firstsave(admin);
             admin.enter();
         }
     }//0
@@ -163,8 +156,9 @@ public class Story {
         if (!admin.var.A1d1) {
             action(1, 2, admin);
             action(2, admin);
-            admin.var.A1d1 = true;
             action(5, admin);
+            admin.var.A1d1 = true;
+            admin.save.saveGame(admin.var);
         }
     }//4
     private void A1D2(Game admin) throws IOException{

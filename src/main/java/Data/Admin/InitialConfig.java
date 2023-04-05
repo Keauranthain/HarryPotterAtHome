@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class InitialConfig {
     public void Creator(Game admin){
         GameObjectCreator(admin);
-        RoomCreator(admin);
         SpellCreator(admin);
         potionCreator(admin);
         EnemyCreator(admin);
@@ -25,7 +24,7 @@ public class InitialConfig {
     public void GameObjectCreator(Game admin){
         addObject(0,"X",true,admin);//Void
         addObject(1,"H",false,admin);//Hero
-        admin.objetList.get(1).setDirection('D');
+        admin.objetList.get(1).setDirection('d');
         addObject(2,"W",true,admin);//Wall
         addObject(3,"W",true,admin);//Water
         addObject(4,"T",true,admin);//Tree
@@ -109,7 +108,6 @@ public class InitialConfig {
         addScriptObject(83,"D",true,66,admin);//Arena door to ET
         addScriptObject(84,"V",true,67,admin);//FirstVoldemort
     }
-
     public void RoomCreator(Game admin) {
         RoomMaker RM = new RoomMaker();
         //dream

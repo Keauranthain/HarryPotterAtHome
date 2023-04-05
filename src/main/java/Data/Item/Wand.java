@@ -1,5 +1,6 @@
 package Data.Item;
 
+import Data.Admin.Game;
 import Data.Enum.Core;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,11 +14,10 @@ public class Wand implements Serializable {
     public Core core;
     public String name;
 
-    public Wand(){
-        Random random = new Random();
-        int size = random.nextInt(23) + 12;
+    public Wand(Game admin){
+        int size = admin.random.nextInt(23) + 12;
         this.size = size;
-        int alea = random.nextInt(3);
+        int alea = admin.random.nextInt(3);
         if (alea == 0){
             this.core = Core.UNICORN_HAIR;
             this.name = "Crin de licorne, "+size+"cm";
