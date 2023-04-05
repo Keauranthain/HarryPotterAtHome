@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="099c4902-8bee-4cf4-bb70-79f26568f9ac" name="Changes" comment="HPHv2 with maven build">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Save.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Item/Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Item/Wand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Story.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="099c4902-8bee-4cf4-bb70-79f26568f9ac" name="Changes" comment="Save patch">
+      <change beforePath="$PROJECT_DIR$/save/saveliste" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,11 +81,26 @@
       <option name="project" value="LOCAL" />
       <updated>1680635782738</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Save patch">
+      <created>1680700102538</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680700102538</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Save patch">
+      <created>1680700281086</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680700281086</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="HPHv2 with maven build" />
-    <option name="LAST_COMMIT_MESSAGE" value="HPHv2 with maven build" />
+    <MESSAGE value="Save patch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Save patch" />
   </component>
 </project>
