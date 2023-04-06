@@ -32,9 +32,25 @@ public class Enemy extends AbstractEnemy implements Serializable {
     }
     public void fight(Game admin) {
         //System.out.println(name);
+        admin.lose = false;
         startfight(name,fullLife,magic,resist,spell,admin);
     }
     public void reward(Game admin){
         admin.XP(xp);
+        if (admin.var.forbiddenspelluse){
+            admin.var.azkaban =true;
+        }
+    }
+    public void lose(Game admin){
+        System.out.println("j'ai...'");
+        admin.delay(1500);
+        System.out.println("perdu...");
+        admin.delay(1500);
+        System.out.println("...");
+        admin.enter();
+        admin.lose = true;
+        if (admin.var.forbiddenspelluse){
+            admin.var.azkaban =true;
+        }
     }
 }

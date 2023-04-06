@@ -21,17 +21,19 @@ public abstract class AbstractEnemy extends Character {
     private int magicBonus;
     private int resistBonus;
     private int accurencyBonus;
-    private int turn = 0;
     private boolean ok = false;
     public abstract int critical(int damage,int idspell);
 
     public abstract void reward(Game admin);
+    public abstract void lose(Game admin);
 
     public void startfight(String name,int fullLife,int magic,int resist,int spell,Game admin){
         int life = admin.var.wizard.getFullLife();
         int oppLife = fullLife;
+        admin.var.forbiddenspelluse = false;
+        int turn = 0;
         setHouseBoost(admin.var.wizard.getHouse());
-        while (life>0 && oppLife>0){
+        while (life>0 && oppLife>0 && turnlimitation(admin,turn)){
             turn ++;
             printfight(life,oppLife,name,fullLife,admin);
             ok = false;
@@ -40,7 +42,6 @@ public abstract class AbstractEnemy extends Character {
                     oppLife = playerAttack(oppLife, resist, magic,admin);
                 } else {
                     life = playerPotion(life,admin.var.wizard.getFullLife(),admin);
-
                 }
             }
             admin.enter();
@@ -52,24 +53,24 @@ public abstract class AbstractEnemy extends Character {
             admin.enter();
             admin.hudgewhite(5);
         }
-        if(life>0){
+        if(oppLife<=0){
             printfight(life,0,name,fullLife,admin);
             reward(admin);
         }
-        else {
-            admin.blackscreen(750);
-            System.out.println("je la vois.....");
-            admin.delay(1500);
-            System.out.println("la lumière........");
-            admin.delay(1500);
-            System.out.println("...........");
-            admin.delay(2000);
-
-            System.exit(0);
+        else if (life <=0){
+            lose(admin);
         }
     }
 
-    public int playerfightchoice(int nchoice, String sentence,Game admin){
+    private boolean turnlimitation(Game admin,int turn){
+        boolean continu = true;
+        if (turn>0 && turn == admin.var.fightturnlimite) {
+            continu = false;
+            admin.var.fightturnlimite=0;
+        }
+        return continu;
+    }
+    private int playerfightchoice(int nchoice, String sentence,Game admin){
         String choice;
         char backtest ='n';
         int value = -1;
@@ -101,7 +102,9 @@ public abstract class AbstractEnemy extends Character {
             admin.var.wizard.Knowspell.add(admin.findSpellById(1));
         }
         for (int i=0 ; i<wizard.getKnowspell().size();i++){
-            System.out.println(i+": "+wizard.getKnowspell().get(i).getName());
+            System.out.print(i+": "+wizard.getKnowspell().get(i).getName()+"   (Puissance : ");
+            System.out.print(wizard.getKnowspell().get(i).getBase_damage()+", Précision : ");
+            System.out.println(wizard.getKnowspell().get(i).getAccuracy()+"%)");
         }
         System.out.println("e: retour");
         int value = playerfightchoice(wizard.getKnowspell().size(),"Quel sort est le plus approprié... ",admin);
@@ -109,7 +112,11 @@ public abstract class AbstractEnemy extends Character {
             ok = false;
         }
         else {
-            newlife = newlife - spellDamage(true, wizard.getKnowspell().get(value), resist, magic,admin);
+            Spell spell = wizard.getKnowspell().get(value);
+            newlife = newlife - spellDamage(true, spell, resist, magic,admin);
+            if (spell.getIdSpell()==11 ||spell.getIdSpell()==12||spell.getIdSpell()==13){
+                admin.var.forbiddenspelluse = true;
+            }
         }
         return newlife;
     }
@@ -149,12 +156,13 @@ public abstract class AbstractEnemy extends Character {
         int newlife = 0;
         switch (potion.getType()) {
             case "heal":
-                newlife = life + potion.heal(admin);
+                int gain = potion.heal(admin);
+                newlife = life + gain;
                 if (newlife>fullLife){
                     newlife=fullLife;
-                    int gain = newlife-life;
-                    System.out.println("Ahhh, ça fait du bien, j'ai au moins dû récupérer "+gain+" point de vie...");
+                    gain = newlife-life;
                 }
+                System.out.println("Ahhh, ça fait du bien, j'ai au moins dû récupérer "+gain+" point de vie...");
                 break;
             case "accurency":
                 accurencyBonus += potion.accurency(admin);
@@ -169,7 +177,7 @@ public abstract class AbstractEnemy extends Character {
             case "resist":
                 resistBonus +=potion.resist(admin);
                 newlife = life;
-                System.out.println("Tu ne m'atteindra pas");
+                System.out.println("Tu ne m'atteindra plus");
                 break;
         }
         return newlife;
@@ -194,7 +202,7 @@ public abstract class AbstractEnemy extends Character {
         }
         else if(!mcattack && accurency<=spell.getAccuracy()){
             damage = magic*spell.getBase_damage()/(admin.var.wizard.getResist()+resistBonus);
-            System.out.println("Ouch, j'ai du perdre "+(damage)+" point de vie");
+            System.out.println("Ouch, son "+spell.getName()+"à bien du me faire perdre "+(damage)+" point de vie");
         }
         else  if (mcattack){
             System.out.println("Raté, il faut que je me concentre");

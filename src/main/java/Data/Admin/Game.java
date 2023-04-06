@@ -25,14 +25,15 @@ public class Game implements Serializable{
     public List<Potion> potionList = new ArrayList<>();
     public Variable var = new Variable();
     public Save save = new Save();
-    public int count;
+    public boolean lose;
+    public boolean maze;
+
     public Game(){
         this.objetList = new ArrayList<>();
         this.enemyList = new ArrayList<>();
         this.scanner = new Scanner(System.in);
         this.random = new Random();
         this.door = new Door(0,0,0);
-        this.count = 0;
         this.creation= new InitialConfig();
     }
     //id ################################################################################################################
@@ -178,10 +179,13 @@ public class Game implements Serializable{
         System.out.print("(entrer)");
         scanner.nextLine();
     }
+    public int leveling(){
+        return 10+(var.wizard.getLevel()-1)*5;
+    }
     public void XP (int xp){
         var.wizard.setXp(var.wizard.getXp()+xp);
-        while (var.wizard.getXp()>=5+(var.wizard.getLevel()-1)*2){
-            var.wizard.setXp(var.wizard.getXp()-(5+(var.wizard.getLevel()-1)*2));
+        while (var.wizard.getXp()>=leveling()){
+            var.wizard.setXp(var.wizard.getXp()-leveling());
             var.wizard.setLevel(var.wizard.getLevel()+1);
             var.wizard.setResist(var.wizard.getResist()+5);
             var.wizard.setMagic(var.wizard.getMagic()+5);
@@ -192,7 +196,7 @@ public class Game implements Serializable{
     }
     public void delay(int time) {
         try {
-            Thread.sleep(time);
+            Thread.sleep(time/1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -206,8 +210,11 @@ public class Game implements Serializable{
     }
     public void removeObjectFromMap(int id, int idroom){
         for(int i = 0 ; findRoomById(idroom).objects.size()>i;i++){
-            while (findRoomById(idroom).objects.get(i)[0]==id){
+            while (findRoomById(idroom).objects.get(i)[0]==id && findRoomById(idroom).objects.size()>i-2){
                 findRoomById(idroom).objects.remove(i);
+            }
+            if (findRoomById(idroom).objects.get(findRoomById(idroom).objects.size()-1)[0]==id){
+                findRoomById(idroom).objects.remove(findRoomById(idroom).objects.size()-1);
             }
         }
     }
@@ -217,41 +224,113 @@ public class Game implements Serializable{
     //School ##############################################################################################################
     public void grade(){
         System.out.println("############################################################");
-        System.out.println("  REMISE DE NOTE, COLLEGE POUDLARD, ECOLE DE SORCELLERIE");
+        switch (var.wizard.years){
+            case 5:
+                System.out.println("  REMISE DE NOTE, BUSE, COLLEGE POUDLARD, ECOLE DE SORCELLERIE");
+                break;
+            case 7:
+                System.out.println("  REMISE DE NOTE, ASEPIC, COLLEGE POUDLARD, ECOLE DE SORCELLERIE");
+                break;
+            default:
+                System.out.println("  REMISE DE NOTE, COLLEGE POUDLARD, ECOLE DE SORCELLERIE");
+                break;
+        }
         System.out.println("");
         System.out.println("");
-        System.out.print("    Sortilège : ");
-        grader(80*var.wizard.years,var.wizard.getMagic());
-        System.out.print("    Potion : ");
-        grader(var.wizard.years,var.wizard.potionrevision);
-        System.out.print("    Défense contre les forces du mal : ");
-        grader(80*var.wizard.years,var.wizard.getResist());
-        System.out.print("    Astronomie : ");
-        grader(100*var.wizard.years,var.wizard.getFullLife());
+        String spell = grader(10 + 25 * var.wizard.years, var.wizard.getMagic());
+        String potion = grader(var.wizard.years, var.wizard.potionrevision);
+        String dfm = grader(10 + 25 * var.wizard.years, var.wizard.getResist());
+        String astronomy = grader(50 + 25 * var.wizard.years, var.wizard.getFullLife());
+        if (!var.spelltobad) {
+            System.out.println("    Sortilège : " + spell);
+        }if (!var.potiontobad) {
+            System.out.println("    Potion : " + potion);
+        }if (!var.dfmtobad) {
+            System.out.println("    Défense contre les forces du mal : " + dfm);
+        }if (!var.astrotobad) {
+            System.out.println("    Astronomie : " + astronomy);
+        }
         System.out.println("");
         System.out.println("");
         System.out.println("############################################################");
+        enter();
+        if (var.wizard.years==5){
+            var.spelltobad = buse(spell);
+            var.potiontobad = buse(potion);
+            var.dfmtobad = buse(dfm);
+            var.astrotobad = buse(astronomy);
+            buseresult();
+            enter();
+        }
         var.wizard.years++;
     }
-    public void grader(int target,int level){
-        if(level>target*1.5){
-            System.out.println("O");
+    private boolean buse(String grade){
+        boolean result = true;
+        switch (grade){
+            case "O","E.E":
+                result = false;
+                break;
         }
-        else if(level>target*1.2){
-            System.out.println("E.E");
-        }
-        else if(level>target){
-            System.out.println("A");
-        }
-        else if(level>target*0.8){
-            System.out.println("P");
-        }
-        else if(level>target*0.5){
-            System.out.println("D");
+        return result;
+    }
+    private void buseresult(){
+        System.out.println("############################################################");
+        System.out.println("  COURS NIVEAU ASPIC");
+        System.out.println("");
+        System.out.println("");
+        System.out.print("    Sortilège : ");
+        if(var.spelltobad){
+            System.out.println("non-accepté");
         }
         else {
-            System.out.println("T");
+            System.out.println("accepté");
         }
+        System.out.print("    Potion : ");
+        if(var.potiontobad){
+            System.out.println("non-accepté");
+        }
+        else {
+            System.out.println("accepté");
+        }
+        System.out.print("    Défense contre les forces du mal : ");
+        if(var.dfmtobad){
+            System.out.println("non-accepté");
+        }
+        else {
+            System.out.println("accepté");
+        }
+        System.out.print("    Astronomie : ");
+        if(var.astrotobad){
+            System.out.println("non-accepté");
+        }
+        else {
+            System.out.println("accepté");
+        }
+        System.out.println("");
+        System.out.println("");
+        System.out.println("############################################################");
+    }
+    private String grader(int target,int level){
+        String result;
+        if(level>target*1.5){
+            result = "O";
+        }
+        else if(level>target*1.2){
+            result = "E.E";
+        }
+        else if(level>target){
+            result = "A";
+        }
+        else if(level>target*0.8){
+            result = "P";
+        }
+        else if(level>target*0.5){
+            result = "D";
+        }
+        else {
+            result = "T";
+        }
+        return result;
     }
     public void lettre(){
         System.out.println("############################################################");
@@ -598,26 +677,7 @@ public class Game implements Serializable{
         }
     }
     private void planning(){
-        switch (var.action){
-            case 1:
-                System.out.println("cour de sortilège dans la tour Ouest...");
-                break;
-            case 2:
-                System.out.println("Regardons mon emplois du tu temps, j'ai...cour de potion au cachot...");
-                break;
-            case 3:
-                System.out.println("Regardons mon emplois du tu temps, j'ai...cour de DFM dans la tour Est...");
-                break;
-            case 4:
-                System.out.println("Regardons mon emplois du tu temps, j'ai...cour d'astronomie au sommet de la tour Ouest...");
-                break;
-            case 5:
-                System.out.println("Regardons mon emplois du tu temps, j'ai...fini ma journée !");
-                break;
-            case 6:
-                System.out.println("Quelque chose se passe dans l'école, je devrais aller voir...");
-                break;
-        }
+        System.out.println(var.agenda);
     }
     public int objEffect(int id) {
         GameObject obj = findGameObjectById(id);

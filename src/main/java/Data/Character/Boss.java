@@ -65,4 +65,16 @@ public class Boss extends AbstractEnemy {
             admin.var.wizard.setMagic(admin.var.wizard.getMagic()+10);
         }
     }
+
+    public void lose(Game admin){
+        admin.blackscreen(750);
+        System.out.println("je la vois.....");
+        admin.delay(1500);
+        System.out.println("la lumière........");
+        admin.delay(1500);
+        System.out.println("...........");
+        admin.delay(2000);
+
+        System.exit(0);
+    }
 }

@@ -26,15 +26,9 @@ public class Door {
         Room roomfrom = admin.findRoomById(admin.var.idRoom);
         Room roomto = admin.findRoomById(idRoom);
         //Cleaning of the old room
-        int position = 1;
-        while (position<roomfrom.objects.size()&&roomfrom.objects.get(position-1)[0] != 1) {
-            position++;
-        }
-        if (roomfrom.objects.get(position-1)[0]==1){
-            roomfrom.objects.remove(position-1);
-        }
+        admin.removeObjectFromMap(1,roomfrom.getId());
         //New room
-        roomto.objects.add(new int []{1,x,y});
+        admin.addObjetOnMap(1,x,y,roomto.getId());
         admin.var.idRoom = idRoom;
         admin.blackscreen(500);
         admin.ScreenMap();

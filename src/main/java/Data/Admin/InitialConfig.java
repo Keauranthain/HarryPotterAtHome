@@ -72,7 +72,7 @@ public class InitialConfig {
         addScriptObject(46,"S",true,30,admin);//GH stair to ET
         addScriptObject(47,"D",true,31,admin);//GH door to Little room
         addScriptObject(48,"S",true,32,admin);//GH stair to Underground
-        addScriptObject(49,"D",true,33,admin);//GH door to Hogsmeade/forbidenForest
+        addScriptObject(49,"D",true,33,admin);//GH door to maze/forbidenForest
         addScriptObject(50,"C",true,34,admin);//Spell Class
         addScriptObject(51,"D",true,35,admin);//Gryffondor door
         addScriptObject(52,"C",true,36,admin);//Astronomy class
@@ -84,6 +84,7 @@ public class InitialConfig {
         addScriptObject(58,"D",true,42,admin);//Bedroom door
         addScriptObject(59,"C",true,43,admin);//DFM class
         addScriptObject(60,"D",true,44,admin);//Ravenclaw door
+        addScriptObject(61,"S",true,45,admin);//ET stair to arena
         addScriptObject(62,"S",true,46,admin);//ET door to GH
         addScriptObject(63,"Q",true,47,admin);//DFM teatcher
         addScriptObject(64,"D",true,48,admin);//DFM class to ET
@@ -107,6 +108,7 @@ public class InitialConfig {
         addScriptObject(82,"O",true,65,admin);//Opponent
         addScriptObject(83,"D",true,66,admin);//Arena door to ET
         addScriptObject(84,"V",true,67,admin);//FirstVoldemort
+        addScriptObject(85,"O",true,68,admin);//ombrage
     }
     public void RoomCreator(Game admin) {
         RoomMaker RM = new RoomMaker();
@@ -142,6 +144,9 @@ public class InitialConfig {
     }
     public void EnemyCreator(Game admin){
         admin.enemyList.add(new Enemy(1,"Dudley",20,5,5,1,10));
+        admin.enemyList.add(new Enemy(2,"Vicktor Krum",210,170,170,8,100));
+        admin.enemyList.add(new Enemy(3,"Cedric Digory",215,175,175,10,100));
+        admin.enemyList.add(new Enemy(4,"Fleur Delacour",205,165,165,9,100));
     }
 
     public  void SpellCreator(Game admin) {
@@ -157,12 +162,14 @@ public class InitialConfig {
         admin.spellList.add(new Spell(10,"Bombarda Maxima",320,25));//7
         admin.spellList.add(new Spell(11,"Imperio",1000,20));//FS
         admin.spellList.add(new Spell(12,"Endoloris",100,100));//FS
-        admin.spellList.add(new Spell(13,"Avada Kedavra",10000,40));//FS
+        admin.spellList.add(new Spell(13,"Avada Kedavra",10000,25));//FS
         admin.spellList.add(new Spell(14,"Coup de massue",45,15));//Boss
         admin.spellList.add(new Spell(15,"Cros du Basilique",45,15));//Boss
-        admin.spellList.add(new Spell(16,"Epée de Griffondor",1000,100));//Objet
+        admin.spellList.add(new Spell(16,"Epée de Griffondor",100,100));//Objet
         admin.spellList.add(new Spell(17,"Expecto Patronum",50,80));//3
         admin.spellList.add(new Spell(18,"Bhou hou",40,100));//Boss
+        admin.spellList.add(new Spell(19,"Avada Kedavra",10000,0));//Avada kedavra alwaymiss
+        admin.spellList.add(new Spell(20,"Feu d'artifice",200,100));//Avada kedavra alwaymiss
     }
 
     public  void potionCreator(Game admin) {
@@ -197,7 +204,7 @@ public class InitialConfig {
                     realname = name+" légeandaire";
                     break;
             }
-            admin.potionList.add(new Potion(id+i,realname,type,i));
+            admin.potionList.add(new Potion(id+i,realname,type,i+1));
         }
     }
 }

@@ -19,4 +19,3 @@ public class Main {
         //Data.Data.Room.Room.printRoom(1);
     }
 }
-

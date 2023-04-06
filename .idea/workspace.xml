@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="099c4902-8bee-4cf4-bb70-79f26568f9ac" name="Changes" comment="Save patch">
-      <change beforePath="$PROJECT_DIR$/save/saveliste" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save/saveliste" beforeDir="false" afterPath="$PROJECT_DIR$/save/saveliste" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/InitialConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/RoomMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/RoomMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Admin/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Admin/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Character/AbstractEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Character/AbstractEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Character/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Boss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Character/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Character/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Effect/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Effect/ScriptEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680700281086</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Save patch">
+      <created>1680700385047</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680700385047</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
